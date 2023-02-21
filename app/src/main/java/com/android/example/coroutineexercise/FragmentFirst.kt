@@ -34,18 +34,18 @@ class FragmentFirst : Fragment() {
 
         binding.BTN1.setOnClickListener {
 
-            val number = binding.ET1.text.toString().toInt()
-            currentNumber = number
             runBlocking {
                 valueFirst()
             }
         }
-
     }
+
     suspend fun valueFirst() {
-        currentNumber++
-        binding.TV1.text = currentNumber.toString()
         delay(2000)
+        val number = binding.ET1.text.toString().toInt()
+        val result = number + 1 + currentNumber
+        currentNumber++
+        binding.TV1.text = result.toString()
     }
 }
 
